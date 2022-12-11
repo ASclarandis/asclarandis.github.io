@@ -4,18 +4,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width" />
-        <title>Portfolio of Anna Sclarandis</title>
+        <title>JavaScript Portfolio of Anna Sclarandis</title>
         <link rel="stylesheet" type="text/css" href="./css/portfolio.css">
+        <link rel="shortcut icon" type="img/jpg" href="">
     </head>
 
     <body class="background">
 
     <!--Navbar-->
         <div class="navbar">
-            <a class="active" href="#home">Home</a>
+            <a href="#home">Home</a>
+            <a href="#Slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#github">GitHub</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
         <br>
         <br>
@@ -26,7 +28,7 @@
         </div>
 
         <div class="banner_text">
-            <h1 class="white-text">Anna Sclarandis's Portfolio</h1>
+            <h1 class="banner-text">Anna Sclarandis's Portfolio</h1>
             <strong>
                 <p class="center">
                     <br> My name is Anna Sclarandis. Welcome to my portfolio! These are the projects I have completed in my coding boot camp.
@@ -34,6 +36,58 @@
                     <br> I hope you enjoy the work I have created so far! 
                 </p>
             </strong>
+        </div>
+
+    <!--Slideshow-->
+        <div id="Slideshow">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+                    <!--Slide 1 of 6-->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/me.jpg" alt="Self image">
+                        <div class="text">I'm available to assist you on your project!</div>
+                    </div>
+                    <!--Slide 2 of 6-->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/HTML_CSS_and_JavaScript.jpeg" alt="icons of html, css, and javascript">
+                        <div class="text">I am a full-stack software developer, <br> trained in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!--Slide 3 of 6-->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/Python.png" alt="python icon">
+                        <div class="text">and the popular programming language Python.</div>
+                    </div>
+                    <!--Slide 4 of 6-->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/uiux.jpg" alt="UI/UX icon">
+                        <div class="text">My current interest is in UI/UX design </div>
+                    </div>
+                    <!--Slide 5 of 6-->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/creative.jpg" alt="Learn, create, inspire">
+                        <div class="text">because I am inspired by creating and learning!</div>
+                    </div>
+                    <!--Slide 6 of 6-->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/email.png" alt="email logo">
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div>
+                    </div>
+                    <!--Previous and next buttons-->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br> <!--Adds a space between slideshow and dots-->
+
+                <!--Slideshow dots-->
+                <div style="text-align: center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
         </div>
 
     <!--About Section-->
@@ -44,8 +98,9 @@
 
             <div class="Column_1">
                 <h1>About</h1>
-                    <p>I am an esthetician with the hopes of becomming a computer programmer!
+                    <p>I am an esthetician with the hopes of becoming a computer programmer!
                     <br>I love to explore creativity when coding to create aesthetically pleasing websites.</p>
+                    <p class="center"><a href="https://www.linkedin.com/in/anna-sclarandis/" target="_blank">View my LinkedIn Profile</a></p>
             </div>
         </div>
 
@@ -66,29 +121,33 @@
             </div>
         </div>
 
-    <!--Contact Section-->
+    <!--Contact form-->
         <div class="row" id="contact">
-            <div class="Column_2 Column_tall">
-                <img src="./images/contact.png" alt="Contact_Image">
-            </div>
-            <div class="Column_1 Column_tall">
+            <div id="Contact">
+                <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+                <div class="form-popup" id="myForm">
+                    <form action="https://formspree.io/f/xlevavop" method="post" class="form-container">
                 <h1>Let's Connect!</h1>
-                <form action="https://formspree.io/f/xlevavop" method="POST">
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
+                    <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Type your name here" name="name" required>
+                    <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Type your phone number here" name="phone">
+                    <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Type your email address here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                        <input type="text" placeholder="Type your message here" name="message">
+                    
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
 
     <!--Footer-->
         <footer>
-            <p>Anna Sclarandis &copy; 2022</p>
+            <p class="center">Anna Sclarandis &copy; 2022 <a href="https://github.com/ASclarandis" target="_blank"></a></p><br>
         </footer>
+        <script src="js/portfolio.js"></script>
     </body>
 
 </html>
